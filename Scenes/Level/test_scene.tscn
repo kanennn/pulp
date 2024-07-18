@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://hirhnu1s7600"]
+[gd_scene load_steps=12 format=3 uid="uid://hirhnu1s7600"]
 
 [ext_resource type="Texture2D" uid="uid://07eqsax6qwda" path="res://Sprites/Tilemap/ShadowTilemapTest.png" id="1_5ig26"]
-[ext_resource type="Shader" uid="uid://bqnk2nefs37jc" path="res://Shaders/Testy.tres" id="2_5yswo"]
+[ext_resource type="Shader" uid="uid://bqnk2nefs37jc" path="res://Shaders/Player.tres" id="2_5yswo"]
+[ext_resource type="PackedScene" uid="uid://53pjpyrr47uo" path="res://Scenes/Char/Player.tscn" id="3_6krva"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b4332"]
 polygon = PackedVector2Array(-4, -7, -1.921, -7, -2, -6, -1, -6, -1, -7, 1, -7, 1, -6, 2, -6, 2, -7, 3, -7, 3, -6, 5, -6, 5, -5, 6, -5, 6, -4, 7, -4, 7, -1.97668, 6, -2, 6, -1, 7, -1, 7, 1, 6, 1, 6, 2, 7, 2, 7, 4, 6, 4, 6, 5, 5, 5, 5, 6, 3, 6, 3, 7, -2, 7, -2, 6, -4, 6, -4, 5, -5, 5, -5, 3, -6, 3, -6, 1, -7, 1, -7, -1, -6, -1, -6, -2, -5, -2, -5, -3, -6, -3.14599, -6, -5, -5, -5, -5, -6, -4, -6)
@@ -90,6 +91,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_g10ak"]
+colors = PackedColorArray(0.603922, 0.921569, 0.639216, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5426t"]
+gradient = SubResource("Gradient_g10ak")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Test Scene" type="Node2D"]
 
 [node name="Game Manager" type="Node" parent="."]
@@ -102,5 +111,15 @@ layer_0/tile_data = PackedInt32Array(-65427, 131072, 1, -65426, 131072, 1, -6542
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game Manager"]
 z_index = 10
 material = SubResource("ShaderMaterial_bksla")
-position = Vector2(1791.86, -32.0229)
+position = Vector2(1752, -43)
 sprite_frames = SubResource("SpriteFrames_42pcx")
+
+[node name="CharacterBody2D" parent="Game Manager" instance=ExtResource("3_6krva")]
+position = Vector2(1838, -19)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Game Manager"]
+visible = false
+color = Color(0.0980392, 0.14902, 0.486275, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Game Manager"]
+texture = SubResource("GradientTexture2D_5426t")
