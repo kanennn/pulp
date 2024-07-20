@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1u1y0"]
 [ext_resource type="Texture2D" uid="uid://07eqsax6qwda" path="res://Sprites/Tilemap/ShadowTilemapTest.png" id="1_gm7r1"]
-[ext_resource type="Shader" uid="uid://hd4hxcnun8cc" path="res://Shaders/PlayerShadow.tres" id="2_jd2ad"]
+[ext_resource type="Shader" uid="uid://bab5pskukcbnu" path="res://Shaders/PlayerShadow.tres" id="2_jd2ad"]
 [ext_resource type="Shader" uid="uid://bqnk2nefs37jc" path="res://Shaders/Player.tres" id="2_x5mak"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m2qd4"]
@@ -49,4 +49,4 @@ visible = false
 shape = SubResource("CircleShape2D_np4td")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(3, 3)
