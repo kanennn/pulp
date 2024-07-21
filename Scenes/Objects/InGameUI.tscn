@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq5pj4iuhfnlv"]
+
+[ext_resource type="Script" path="res://Scripts/UIController.gd" id="1_0sddg"]
+[ext_resource type="Texture2D" uid="uid://fgddxscnse0s" path="res://Sprites/UI/DialougeBox.png" id="1_bjrdv"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0sddg")
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -240.0
+offset_top = 900.0
+offset_right = 1680.0
+offset_bottom = 1140.0
+scale = Vector2(0.3, 0.4)
+pivot_offset = Vector2(960, 120)
+texture = ExtResource("1_bjrdv")
+expand_mode = 3
+
+[node name="Dialogue" type="Label" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 133.333
+offset_top = 20.0
+offset_right = 1787.33
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 40
+text = "Hi this is an example dialouge and i like cheese but only on tuesdays. yay okay doki. love you, bye."
+autowrap_mode = 3
+clip_text = true
