@@ -16,7 +16,7 @@ func _input(event):
 			handleDialogue(exDialogue)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("TurnDiaPage"): # Emit the turnPage signal when "TurnDiaPage" action is pressed
+	if Input.is_action_just_pressed("Interact"): # Emit the turnPage signal when "TurnDiaPage" action is pressed
 		turnPage.emit()
 
 func handleDialogue(diaBlock): # Handles all dialogue. "diaBlock" is an array with each element as a page of the dialogue

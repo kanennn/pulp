@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://hirhnu1s7600"]
+[gd_scene load_steps=12 format=3 uid="uid://hirhnu1s7600"]
 
 [ext_resource type="Texture2D" uid="uid://07eqsax6qwda" path="res://Sprites/Tilemap/ShadowTilemapTest.png" id="1_5ig26"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_qa11t"]
 [ext_resource type="PackedScene" uid="uid://53pjpyrr47uo" path="res://Scenes/Char/Player.tscn" id="3_6krva"]
 [ext_resource type="PackedScene" uid="uid://be612wl8j5kvh" path="res://Scenes/Objects/MemoryObject.tscn" id="3_rxlh5"]
 [ext_resource type="PackedScene" uid="uid://cq5pj4iuhfnlv" path="res://Scenes/Objects/InGameUI.tscn" id="4_nf6ff"]
+[ext_resource type="Script" path="res://Dialogues/Memories/TestMemory.gd" id="5_yl26d"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b4332"]
 polygon = PackedVector2Array(-4, -7, -1.921, -7, -2, -6, -1, -6, -1, -7, 1, -7, 1, -6, 2, -6, 2, -7, 3, -7, 3, -6, 5, -6, 5, -5, 6, -5, 6, -4, 7, -4, 7, -1.97668, 6, -2, 6, -1, 7, -1, 7, 1, 6, 1, 6, 2, 7, 2, 7, 4, 6, 4, 6, 5, 5, 5, 5, 6, 3, 6, 3, 7, -2, 7, -2, 6, -4, 6, -4, 5, -5, 5, -5, 3, -6, 3, -6, 1, -7, 1, -7, -1, -6, -1, -6, -2, -5, -2, -5, -3, -6, -3.14599, -6, -5, -5, -5, -5, -6, -4, -6)
@@ -111,11 +112,11 @@ speed = 80
 
 [node name="CanvasModulate" type="CanvasModulate" parent="GameManager"]
 
-[node name="AnimatedSprite2D2" parent="GameManager" instance=ExtResource("3_rxlh5")]
+[node name="TestMemory" parent="GameManager" instance=ExtResource("3_rxlh5")]
 z_index = 2
 position = Vector2(1817, -87)
 sprite_frames = SubResource("SpriteFrames_v5d6o")
-interactRadius = 100
+dialogueScript = ExtResource("5_yl26d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameManager"]
 
