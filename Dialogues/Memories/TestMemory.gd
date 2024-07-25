@@ -1,9 +1,15 @@
 extends Node
 
-static var dialogue = ["A farmer is having trouble with his chickens.",
-"All of them suddenly stop laying eggs.", 
-"So he calls a physicist, an engineer, and a mathematician to help solve the problem.",
-"The physicist goes into the chicken coop, examines everything, and comes out. He says, 'I have a solution, but it only works with spherical chickens in a vacuum.'",
-"The engineer then goes in, tinkers with the coop and the feeding system, and says, 'I can get the chickens to lay eggs, but only at a 75% efficiency rate.'",
-"Finally, the mathematician goes into the coop. He looks around, scribbles some equations on a piece of paper, and comes out.",
-"He hands the farmer the paper and says, 'I've found a solution! Now, let's assume the chickens are points in a 4-dimensional space...'"]
+																																					# Cut off character length is about here
+static var dialogue = [
+	"Seymour: Well, that was wonderful. A good time was had by all. I'm pooped.",
+	"Chalmers: Yes, I should be-- GOOD GRACIOUS, WHAT IS HAPPENING IN THERE!?",
+	"Seymour: Aurora Borealis?",
+	"Chalmers: Aurora Borealis!? At this time of year, at this time of day, in this part of the country, localized entirely within your kitchen!?",
+	"Seymour: Yes.",
+	"Chalmers: ...May I see it?",
+	"Seymour: No.",
+	"Seymour's Mother: SEYMOUR!!! THE HOUSE IS ON FIRE!!!",
+	"Seymour: Noo, mother. It's just the northern lights. ",
+	"Chalmers: Well, Seymour, you are an odd fellow, but I must say... you steam a good ham.",
+	"Seymour's Mother: HEEELP!! HEEEEEEELP!!!!"]
