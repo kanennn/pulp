@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cq5pj4iuhfnlv"]
 
 [ext_resource type="Script" path="res://Scripts/UIController.gd" id="1_0sddg"]
-[ext_resource type="Texture2D" uid="uid://fgddxscnse0s" path="res://Sprites/UI/DialougeBox.png" id="1_bjrdv"]
-[ext_resource type="Texture2D" uid="uid://bx737oqyufvpd" path="res://Sprites/UI/EssenceBack.png" id="3_oqpdh"]
-[ext_resource type="Texture2D" uid="uid://ch3rjordujlyn" path="res://Sprites/UI/EssenceBar.png" id="4_bben2"]
+[ext_resource type="Texture2D" uid="uid://fgddxscnse0s" path="res://Visual Assets/UI/DialougeBox.png" id="1_bjrdv"]
+[ext_resource type="Texture2D" uid="uid://bx737oqyufvpd" path="res://Visual Assets/UI/EssenceBack.png" id="3_oqpdh"]
+[ext_resource type="Texture2D" uid="uid://ch3rjordujlyn" path="res://Visual Assets/UI/EssenceBar.png" id="4_bben2"]
 
 [node name="UI" type="Control"]
 layout_mode = 3

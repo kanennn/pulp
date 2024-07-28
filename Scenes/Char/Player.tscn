@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1u1y0"]
 [ext_resource type="Shader" path="res://Shaders/Player.gdshader" id="4_5582f"]
-[ext_resource type="Texture2D" uid="uid://soewkuujulc7" path="res://Sprites/Characters/PlayerSpriteNoFrames.png" id="4_qk2p4"]
+[ext_resource type="Texture2D" uid="uid://soewkuujulc7" path="res://Visual Assets/Sprites/Characters/PlayerSpriteNoFrames.png" id="4_qk2p4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_iigv6"]
 noise_type = 2
@@ -393,6 +393,8 @@ material = SubResource("ShaderMaterial_xh1u3")
 sprite_frames = SubResource("SpriteFrames_srkhv")
 animation = &"Idle"
 autoplay = "Idle"
+frame = 1
+frame_progress = 0.483393
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://hhypgjmg8su5"]
 
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="1_v367i"]
-[ext_resource type="Texture2D" uid="uid://cvjii61a7h14e" path="res://Sprites/npc_lol.png" id="2_s3vo0"]
+[ext_resource type="Texture2D" uid="uid://cvjii61a7h14e" path="res://Visual Assets/Sprites/Characters/npc_lol.png" id="2_s3vo0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5fjc5"]
 vertices = PackedVector2Array(1138, 342, 3127, 337, 2355, 766, 1747, 775, 1132, 2304, 1743, 1839, 3139, 2298, 2354, 1837)

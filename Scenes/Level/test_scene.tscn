@@ -1,14 +1,15 @@
-[gd_scene load_steps=51 format=3 uid="uid://hirhnu1s7600"]
+[gd_scene load_steps=52 format=3 uid="uid://hirhnu1s7600"]
 
-[ext_resource type="Texture2D" uid="uid://07eqsax6qwda" path="res://Sprites/Tilemap/ShadowTilemapTest.png" id="1_5ig26"]
+[ext_resource type="Texture2D" uid="uid://07eqsax6qwda" path="res://Visual Assets/Tilemap/ShadowTilemapTest.png" id="1_5ig26"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_qa11t"]
 [ext_resource type="PackedScene" uid="uid://53pjpyrr47uo" path="res://Scenes/Char/Player.tscn" id="3_6krva"]
-[ext_resource type="Texture2D" uid="uid://2b5c2il07src" path="res://Sprites/Tilemap/tilemap1.png" id="3_p6m4f"]
+[ext_resource type="Texture2D" uid="uid://2b5c2il07src" path="res://Visual Assets/Tilemap/tilemap1.png" id="3_p6m4f"]
 [ext_resource type="PackedScene" uid="uid://be612wl8j5kvh" path="res://Scenes/Objects/MemoryObject.tscn" id="3_rxlh5"]
-[ext_resource type="Texture2D" uid="uid://cyg6lh50sripo" path="res://Sprites/Tilemap/Treeee.png" id="4_gfyxd"]
+[ext_resource type="Texture2D" uid="uid://cyg6lh50sripo" path="res://Visual Assets/Tilemap/Treeee.png" id="4_gfyxd"]
 [ext_resource type="PackedScene" uid="uid://cq5pj4iuhfnlv" path="res://Scenes/Objects/InGameUI.tscn" id="4_nf6ff"]
 [ext_resource type="Script" path="res://Dialogues/Memories/TestMemory.gd" id="5_yl26d"]
-[ext_resource type="PackedScene" uid="uid://cd8daudrhgn3m" path="res://Scenes/Objects/DayNight.tscn" id="6_6egoy"]
+[ext_resource type="PackedScene" uid="uid://c8br45awndu6r" path="res://Scenes/Objects/DayNight.tscn" id="6_6egoy"]
+[ext_resource type="PackedScene" uid="uid://lxsbkit3tuy6" path="res://Scenes/Objects/Lamp.tscn" id="10_0fdjt"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b4332"]
 polygon = PackedVector2Array(-4, -7, -1.921, -7, -2, -6, -1, -6, -1, -7, 1, -7, 1, -6, 2, -6, 2, -7, 3, -7, 3, -6, 5, -6, 5, -5, 6, -5, 6, -4, 7, -4, 7, -1.97668, 6, -2, 6, -1, 7, -1, 7, 1, 6, 1, 6, 2, 7, 2, 7, 4, 6, 4, 6, 5, 5, 5, 5, 6, 3, 6, 3, 7, -2, 7, -2, 6, -4, 6, -4, 5, -5, 5, -5, 3, -6, 3, -6, 1, -7, 1, -7, -1, -6, -1, -6, -2, -5, -2, -5, -3, -6, -3.14599, -6, -5, -5, -5, -5, -6, -4, -6)
@@ -434,7 +435,6 @@ default_value_enabled = true
 default_value = Vector2(0, 0.4)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_61oen"]
-load_path = "res://.godot/imported/UV_Grid_Sm.jpg-10841467774417424e8319dedf985d46.s3tc.ctex"
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_e81if"]
 texture = SubResource("CompressedTexture2D_61oen")
@@ -659,7 +659,7 @@ script = ExtResource("1_qa11t")
 [node name="UI" parent="GameManager/CanvasLayer" instance=ExtResource("4_nf6ff")]
 
 [node name="Player" parent="GameManager" instance=ExtResource("3_6krva")]
-position = Vector2(1844, -21)
+position = Vector2(1860, -32)
 
 [node name="TileMap" type="TileMap" parent="GameManager"]
 y_sort_enabled = true
@@ -674,15 +674,11 @@ layer_1/y_sort_enabled = true
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-327574, 2, 0, -458643, 196610, 0, -262033, 196610, 0, -393098, 196610, 0, -262024, 196610, 0, -393095, 196610, 0, -262021, 196610, 0, -327558, 196610, 0, 196728, 2, 0, 65659, 2, 0, 65650, 196610, 0, 196720, 2, 0, 131188, 196610, 0, 262266, 196610, 0, 65643, 196610, 0, 131177, 196610, 0, 196714, 196610, 0)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="GameManager"]
-visible = false
-
-[node name="StaticBody2D" parent="GameManager" instance=ExtResource("6_6egoy")]
-visible = false
-z_index = 10
-position = Vector2(186, 343)
+[node name="DayNightModulate" parent="GameManager" instance=ExtResource("6_6egoy")]
+initTime = 360
 
 [node name="Memories" type="Node2D" parent="GameManager"]
+y_sort_enabled = true
 
 [node name="TestMemory" parent="GameManager/Memories" instance=ExtResource("3_rxlh5")]
 position = Vector2(1817, -87)
@@ -694,3 +690,6 @@ material = SubResource("ShaderMaterial_ucgdb")
 position = Vector2(1916, -41)
 sprite_frames = SubResource("SpriteFrames_cyfku")
 dialogueScript = ExtResource("5_yl26d")
+
+[node name="Lamp" parent="GameManager" instance=ExtResource("10_0fdjt")]
+position = Vector2(1873, -60)

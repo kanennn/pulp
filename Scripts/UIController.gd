@@ -54,4 +54,3 @@ func expandEssenceBar(maxEss, curEss):
 
 func updateEssenceBar(curEss):
 	essenceBar.value = curEss
-

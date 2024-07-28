@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/MemoryObject.gd" id="1_tfvti"]
 [ext_resource type="Shader" uid="uid://btrovsif32dki" path="res://Shaders/UIBounce.tres" id="2_i2nk7"]
-[ext_resource type="Texture2D" uid="uid://du3a288myjex3" path="res://Sprites/UI/SpacePrompt.png" id="2_xqiao"]
+[ext_resource type="Texture2D" uid="uid://du3a288myjex3" path="res://Visual Assets/UI/SpacePrompt.png" id="2_xqiao"]
 
 [sub_resource type="Gradient" id="Gradient_7nlsq"]
 offsets = PackedFloat32Array(0.221154, 1)
