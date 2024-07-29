@@ -4,8 +4,11 @@ uniform sampler2D erosion : repeat_enable;
 uniform float deterioration : hint_range(-.2, 1.85);
 uniform bool isShadow = false;
 
+
 void vertex() {
 	UV = UV;
+	
+	
 	
 	if (isShadow == true) {
 		if (VERTEX.g < 0.0) {
@@ -19,12 +22,26 @@ void fragment() {
 		COLOR.rgb = vec3(0.0, 0.0, 0.0);
 	} 
 	
-	vec4 erosion_tex = texture(erosion, UV);
+	float pixelSize = 1.0; 
+	
+	ivec2 size = textureSize(TEXTURE, 0);
+	
+	int xRes = size.r;
+	int yRes = size.g;
+	
+	float xFactor = float(xRes) / pixelSize;
+	float yFactor = float(yRes) / pixelSize;
+	
+	float gridUvX = round(UV.x * xFactor) / xFactor;
+	float gridUvY = round(UV.y * yFactor) / yFactor;
+	
+	vec4 pErosion = texture(erosion, vec2(gridUvX, gridUvY));
 	
 	float erosion_min = (deterioration * 0.5);
-	float erosion_max = erosion_min + .01;
-	float erosion_val = smoothstep(erosion_min, erosion_max, erosion_tex.r);
+	float erosion_max = erosion_min + .0;
+	float erosion_val = smoothstep(erosion_min, erosion_max, pErosion.r);
 	
+
 	COLOR.a *= erosion_val;
 }
 

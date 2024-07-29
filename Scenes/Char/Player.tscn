@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://53pjpyrr47uo"]
+[gd_scene load_steps=52 format=3 uid="uid://53pjpyrr47uo"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1u1y0"]
 [ext_resource type="Shader" path="res://Shaders/Player.gdshader" id="4_5582f"]
@@ -177,7 +177,7 @@ point_count = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xh1u3"]
 shader = ExtResource("4_5582f")
-shader_parameter/deterioration = -0.2
+shader_parameter/deterioration = -0.038
 shader_parameter/isShadow = false
 shader_parameter/erosion = SubResource("NoiseTexture2D_y5a5h")
 
@@ -357,6 +357,15 @@ _data = {
 "RESET": SubResource("Animation_xdflc")
 }
 
+[sub_resource type="Gradient" id="Gradient_q0cth"]
+colors = PackedColorArray(0.167118, 0.255017, 0.176884, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qybjj"]
+gradient = SubResource("Gradient_q0cth")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1u1y0")
 
@@ -395,6 +404,7 @@ animation = &"Idle"
 autoplay = "Idle"
 frame = 1
 frame_progress = 0.483393
+offset = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -410,3 +420,7 @@ root_node = NodePath("../PlayerSprite")
 libraries = {
 "": SubResource("AnimationLibrary_26fbo")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.25
+texture = SubResource("GradientTexture2D_qybjj")
