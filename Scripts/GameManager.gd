@@ -23,9 +23,11 @@ func _ready():
 		i.memoryObtained.connect(player.onMemoryObtained) # Connect the memoryobtained signals to the player's onmemoryobtained function
 	for i in get_tree().get_nodes_in_group("lamps"): # Get and loop through all lamps
 		i.togglePlayerInLight.connect(togglePlayerInLight) # Connect the toggleplayerinlight signals to the toggleplayerinlight function
+		i.togglePlayerInLight.connect(player.togglePlayerInLight)
 	dayNight.updateDayNight.connect(toggleTimeOfDay)
 	
 	## Connect to others
+	dayNight.updateDayNight.connect(player.toggleTimeOfDay)
 	deth.connect(player.onDeath) 
 
 func _process(delta):
@@ -45,6 +47,11 @@ func updateEssence(delta):
 			isInteracting = true
 			deth.emit()
 			dead = true
+	elif isNight == false:
+		if curEssence < maxEssence:
+			curEssence += .1 * delta
+		if curEssence > maxEssence:
+			curEssence = maxEssence
 	
 	ui.updateEssenceBar(curEssence)
 

@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://hhypgjmg8su5"]
+
+[ext_resource type="Script" path="res://Scripts/NPC.gd" id="1_v367i"]
+[ext_resource type="Texture2D" uid="uid://cvjii61a7h14e" path="res://Visual Assets/Sprites/Characters/npc_lol.png" id="2_s3vo0"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5fjc5"]
+vertices = PackedVector2Array(1138, 342, 3127, 337, 2355, 766, 1747, 775, 1132, 2304, 1743, 1839, 3139, 2298, 2354, 1837)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(1, 6, 7, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(3137, 327, 1129, 333, 1122, 2315, 3150, 2308), PackedVector2Array(2345, 776, 2344, 1827, 1753, 1829, 1757, 785)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydemh"]
+size = Vector2(536, 997)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13i8s"]
+size = Vector2(40, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1vgo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s3vo0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-3, -1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-1123, -323)
+navigation_polygon = SubResource("NavigationPolygon_5fjc5")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D"]
+position = Vector2(-1796.72, -407.189)
+scale = Vector2(3.18439, 1.86452)
+color = Color(0.152525, 0.315557, 0.246808, 1)
+polygon = PackedVector2Array(767.719, 467.782, 940.122, 467.782, 942.006, 1009.48, 770.859, 1012.16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(925, 976.5)
+shape = SubResource("RectangleShape2D_ydemh")
+disabled = true
+
+[node name="npc" type="CharacterBody2D" parent="."]
+position = Vector2(310.814, 315.166)
+script = ExtResource("1_v367i")
+metadata/_edit_group_ = true
+
+[node name="body_shape" type="CollisionShape2D" parent="npc"]
+shape = SubResource("RectangleShape2D_13i8s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="npc"]
+position = Vector2(0.999984, 0)
+sprite_frames = SubResource("SpriteFrames_r1vgo")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="npc"]
+avoidance_enabled = true
+radius = 500.0
+max_speed = 200.0
+debug_enabled = true
+debug_use_custom = true
+
+[node name="Camera2D" type="Camera2D" parent="npc"]
+
+[node name="Timer" type="Timer" parent="npc"]
+one_shot = true

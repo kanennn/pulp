@@ -21,7 +21,7 @@ func _ready():
 func _process(_delta):
 	if %GameManager.isInteracting == true: return # return end if player is interacting with something else
 	if Input.is_action_just_pressed("Interact") and isInRange == true and isCollected == false: # Detect and interact
-		UI.handleDialogue(dialogueScript.dialogue) # Send dialogue to dialogue handler
+		##UI.handleDialogue(dialogueScript.dialogue) # Send dialogue to dialogue handler
 		memoryObtained.emit() # Signal that a memory was obtained to the gamemanager
 		isCollected = true
 		

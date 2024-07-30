@@ -9,7 +9,8 @@ extends CharacterBody2D
 var absDet = 0.0 / 16.0 # absolute deterioration (opaqueness) of the sprite
 var time = 0.0 # For pulse effect of sprite
 var isDying = false
-
+var inLight = false
+var isNight = false
 
 func _ready():
 	add_to_group("Player")
@@ -26,6 +27,9 @@ func _physics_process(delta):
 		time = 0
 	
 	pulseShader()
+	
+	if isNight:
+		toggleShaddow()
 	
 	if %GameManager.isInteracting == true: # return end and play idle if player is interacting with something else
 		player.play("Idle")
@@ -70,6 +74,23 @@ func pulseShader(): # Pulse the opacity of the char when inbetween 1 and 0
 		#player.material.set_shader_parameter("deterioration", absDet + detOffset)
 		player.modulate.a = absDet + detOffset
 
+func toggleShaddow():
+	if inLight:
+		if shadow.modulate.a >= .75: return
+		else:
+			while shadow.modulate.a  < .75: 
+				shadow.modulate.a += 0.1
+				
+				await get_tree().create_timer(.02).timeout
+	
+	else: 
+		if shadow.modulate.a <= 0: return
+		else: 
+			while shadow.modulate.a  > 0: 
+				shadow.modulate.a -= 0.1
+				
+				await get_tree().create_timer(.02).timeout
+
 func onDeath():
 	isDying = true
 	
@@ -104,3 +125,10 @@ func onDeath():
 
 func onMemoryObtained(): # increase opacity on memory obtained
 	absDet += 1.0 / 16.0
+
+func togglePlayerInLight(_inLight):
+	inLight = _inLight
+
+func toggleTimeOfDay(_isNight):
+	isNight = _isNight
+
