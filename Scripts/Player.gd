@@ -76,10 +76,10 @@ func pulseShader(): # Pulse the opacity of the char when inbetween 1 and 0
 
 func toggleShaddow():
 	if inLight:
-		if shadow.modulate.a >= 1: return
+		if shadow.modulate.a >= .75: return
 		else:
-			while shadow.modulate.a  < 1: 
-				shadow.modulate.a += 0.2
+			while shadow.modulate.a  < .75: 
+				shadow.modulate.a += 0.1
 				
 				await get_tree().create_timer(.02).timeout
 	
@@ -87,7 +87,7 @@ func toggleShaddow():
 		if shadow.modulate.a <= 0: return
 		else: 
 			while shadow.modulate.a  > 0: 
-				shadow.modulate.a -= 0.2
+				shadow.modulate.a -= 0.1
 				
 				await get_tree().create_timer(.02).timeout
 

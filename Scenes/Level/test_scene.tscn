@@ -331,7 +331,6 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-327574, 2, 0, -458643, 196610, 0, -262033, 196610, 0, -393098, 196610, 0, -262024, 196610, 0, -393095, 196610, 0, -262021, 196610, 0, -327558, 196610, 0, 196728, 2, 0, 65659, 2, 0, 65650, 196610, 0, 196720, 2, 0, 131188, 196610, 0, 262266, 196610, 0, 65643, 196610, 0, 131177, 196610, 0, 196714, 196610, 0)
 
 [node name="DayNightModulate" parent="GameManager" instance=ExtResource("6_6egoy")]
-initTime = 395
 
 [node name="Memories" type="Node2D" parent="GameManager"]
 y_sort_enabled = true

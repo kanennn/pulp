@@ -47,6 +47,11 @@ func updateEssence(delta):
 			isInteracting = true
 			deth.emit()
 			dead = true
+	elif isNight == false:
+		if curEssence < maxEssence:
+			curEssence += .1 * delta
+		if curEssence > maxEssence:
+			curEssence = maxEssence
 	
 	ui.updateEssenceBar(curEssence)
 

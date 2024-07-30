@@ -1,9 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://be612wl8j5kvh"]
+[gd_scene load_steps=17 format=3 uid="uid://be612wl8j5kvh"]
 
 [ext_resource type="Texture2D" uid="uid://d02bq1pdobvgy" path="res://Visual Assets/Sprites/Props/Memory.png" id="1_b6lpx"]
+[ext_resource type="Shader" uid="uid://deeng470mumat" path="res://Shaders/MemorySpin.tres" id="1_eypwl"]
 [ext_resource type="Script" path="res://Scripts/MemoryObject.gd" id="1_tfvti"]
 [ext_resource type="Shader" uid="uid://btrovsif32dki" path="res://Shaders/UIBounce.tres" id="2_i2nk7"]
 [ext_resource type="Texture2D" uid="uid://du3a288myjex3" path="res://Visual Assets/UI/SpacePrompt.png" id="2_xqiao"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xmx1a"]
+shader = ExtResource("1_eypwl")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftjlc"]
 atlas = ExtResource("1_b6lpx")
@@ -61,6 +65,7 @@ shader = ExtResource("2_i2nk7")
 light_mask = 2
 z_index = 1
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_xmx1a")
 sprite_frames = SubResource("SpriteFrames_b2hf3")
 script = ExtResource("1_tfvti")
 
