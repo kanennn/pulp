@@ -1,8 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://be612wl8j5kvh"]
+[gd_scene load_steps=15 format=3 uid="uid://be612wl8j5kvh"]
 
+[ext_resource type="Texture2D" uid="uid://d02bq1pdobvgy" path="res://Visual Assets/Sprites/Props/Memory.png" id="1_b6lpx"]
 [ext_resource type="Script" path="res://Scripts/MemoryObject.gd" id="1_tfvti"]
 [ext_resource type="Shader" uid="uid://btrovsif32dki" path="res://Shaders/UIBounce.tres" id="2_i2nk7"]
 [ext_resource type="Texture2D" uid="uid://du3a288myjex3" path="res://Visual Assets/UI/SpacePrompt.png" id="2_xqiao"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftjlc"]
+atlas = ExtResource("1_b6lpx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2hf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftjlc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_7nlsq"]
 offsets = PackedFloat32Array(0.221154, 1)
@@ -45,6 +61,7 @@ shader = ExtResource("2_i2nk7")
 light_mask = 2
 z_index = 1
 y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_b2hf3")
 script = ExtResource("1_tfvti")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
