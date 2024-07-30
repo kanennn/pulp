@@ -33,8 +33,8 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_0v0ct"]
-offsets = PackedFloat32Array(0, 0.310897, 0.996795, 1)
-colors = PackedColorArray(0.841951, 0.475811, 0.0853938, 1, 0.425988, 0.242501, 0.0468294, 1, 0.0179725, 0.013648, 0.00900185, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.222798, 0.450777, 0.996795, 1)
+colors = PackedColorArray(0.841951, 0.475811, 0.0853938, 1, 0.425988, 0.242501, 0.0468294, 1, 0.21021, 0.121473, 0.0268244, 1, 0.0179725, 0.013648, 0.00900185, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0mk2s"]
 gradient = SubResource("Gradient_0v0ct")
@@ -44,8 +44,8 @@ fill_to = Vector2(0.5, 1)
 metadata/_snap_enabled = true
 
 [sub_resource type="Gradient" id="Gradient_vw31r"]
-offsets = PackedFloat32Array(0, 0.0929487, 1)
-colors = PackedColorArray(0.843137, 0.47451, 0.0862745, 1, 0.443188, 0.249422, 0.0453494, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.176166, 1)
+colors = PackedColorArray(0.443188, 0.249422, 0.0453494, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_eqyd5"]
 gradient = SubResource("Gradient_vw31r")

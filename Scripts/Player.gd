@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var shadow = $Shadow
 @onready var player = $PlayerSprite
 @onready var particles = $CPUParticles2D
-@export var speed = 100 # Desired player speed (exported mainly for debug purposes)
+@export var speed = 90 # Desired player speed (exported mainly for debug purposes)
 
 #var absDet = 1.85 * (16.0 / 16.0)
 var absDet = 0.0 / 16.0 # absolute deterioration (opaqueness) of the sprite
@@ -12,6 +12,7 @@ var isDying = false
 
 
 func _ready():
+	add_to_group("Player")
 	isDying = false
 	particles.emitting = false
 	#player.material.set_shader_parameter("deterioration", absDet)
@@ -102,5 +103,4 @@ func onDeath():
 	print("deth... bleh")
 
 func onMemoryObtained(): # increase opacity on memory obtained
-	print("wooper")
 	absDet += 1.0 / 16.0

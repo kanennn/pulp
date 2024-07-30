@@ -14,6 +14,7 @@ var isInLight = false
 var dead = false
 
 func _ready():
+	add_to_group("GameManager")
 	dead = false
 	
 	## Connect to self
@@ -47,9 +48,13 @@ func updateEssence(delta):
 	
 	ui.updateEssenceBar(curEssence)
 
+func dealEnemyDamage(damage):
+	if damage == null: return
+	curEssence -= damage
+
 func toggleTimeOfDay(_isNight): # Get if night from the daynight script
 	isNight = _isNight
-	print("night"+str(isNight))
+	print("night")
 
 func togglePlayerInLight(_isInLight): # Get if in light from the lamp script
 	isInLight = _isInLight

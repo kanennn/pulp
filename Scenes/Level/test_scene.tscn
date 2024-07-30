@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://hirhnu1s7600"]
+[gd_scene load_steps=53 format=3 uid="uid://hirhnu1s7600"]
 
 [ext_resource type="Texture2D" uid="uid://07eqsax6qwda" path="res://Visual Assets/Tilemap/ShadowTilemapTest.png" id="1_5ig26"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_qa11t"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Dialogues/Memories/TestMemory.gd" id="5_yl26d"]
 [ext_resource type="PackedScene" uid="uid://c8br45awndu6r" path="res://Scenes/Objects/DayNight.tscn" id="6_6egoy"]
 [ext_resource type="PackedScene" uid="uid://lxsbkit3tuy6" path="res://Scenes/Objects/Lamp.tscn" id="10_0fdjt"]
+[ext_resource type="PackedScene" uid="uid://da78usjsogdm8" path="res://Scenes/NPCs/Enemy.tscn" id="11_07omy"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b4332"]
 polygon = PackedVector2Array(-4, -7, -1.921, -7, -2, -6, -1, -6, -1, -7, 1, -7, 1, -6, 2, -6, 2, -7, 3, -7, 3, -6, 5, -6, 5, -5, 6, -5, 6, -4, 7, -4, 7, -1.97668, 6, -2, 6, -1, 7, -1, 7, 1, 6, 1, 6, 2, 7, 2, 7, 4, 6, 4, 6, 5, 5, 5, 5, 6, 3, 6, 3, 7, -2, 7, -2, 6, -4, 6, -4, 5, -5, 5, -5, 3, -6, 3, -6, 1, -7, 1, -7, -1, -6, -1, -6, -2, -5, -2, -5, -3, -6, -3.14599, -6, -5, -5, -5, -5, -6, -4, -6)
@@ -675,7 +676,7 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-327574, 2, 0, -458643, 196610, 0, -262033, 196610, 0, -393098, 196610, 0, -262024, 196610, 0, -393095, 196610, 0, -262021, 196610, 0, -327558, 196610, 0, 196728, 2, 0, 65659, 2, 0, 65650, 196610, 0, 196720, 2, 0, 131188, 196610, 0, 262266, 196610, 0, 65643, 196610, 0, 131177, 196610, 0, 196714, 196610, 0)
 
 [node name="DayNightModulate" parent="GameManager" instance=ExtResource("6_6egoy")]
-initTime = 360
+initTime = 395
 
 [node name="Memories" type="Node2D" parent="GameManager"]
 y_sort_enabled = true
@@ -693,3 +694,22 @@ dialogueScript = ExtResource("5_yl26d")
 
 [node name="Lamp" parent="GameManager" instance=ExtResource("10_0fdjt")]
 position = Vector2(1873, -60)
+
+[node name="Enemies" type="Node2D" parent="GameManager"]
+y_sort_enabled = true
+position = Vector2(-6, -4)
+
+[node name="Enemy" parent="GameManager/Enemies" instance=ExtResource("11_07omy")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(1803, -26)
+
+[node name="Enemy2" parent="GameManager/Enemies" instance=ExtResource("11_07omy")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(1766, 29)
+
+[node name="Enemy3" parent="GameManager/Enemies" instance=ExtResource("11_07omy")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(1734, -55)

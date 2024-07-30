@@ -12,6 +12,9 @@ var time = 0
 var dayNight = false # false = day, true = night
 var gradValue = null
 
+func _ready():
+	add_to_group("DayNight")
+
 func _process(delta):
 	if time == 0:
 		time = initTime * gameToRealMinDur * timeSpeed # Set initial time 
@@ -21,7 +24,6 @@ func _process(delta):
 	
 	gradValue = (sin(time) + 1) / 2 # Scroll throught the ambiant color gradient with a sin function with a period of 720 seconds
 	self.color = gradient.gradient.sample(gradValue) # Set the modulate to that color value
-	print(gradValue)
 	
 	if lastGradValue == null: return
 	elif gradValue < .33 and lastGradValue > .33: # If the gradient is less than .33 through (nighttime) and it didn't used to be, tell the gamemanager it's night

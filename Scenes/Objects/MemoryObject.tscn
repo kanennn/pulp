@@ -73,6 +73,7 @@ scale_amount_curve = SubResource("Curve_2r44n")
 [node name="InteractBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
+visible = false
 shape = SubResource("CircleShape2D_02he4")
 
 [node name="Prompt" type="TextureRect" parent="."]
