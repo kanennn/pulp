@@ -52,6 +52,7 @@ func updateEssence(delta):
 		if curEssence > 0: # If essence is greater than 0, decrease it (essence decreases at a rate of 1 per 10 seconds)
 			curEssence -= .1 * delta
 		elif curEssence <= 0 and dead == false: # If essence is less than 0 and the player is not already dead, initiate death protcol 
+			#pass
 			isInteracting = true
 			deth.emit()
 			dead = true
