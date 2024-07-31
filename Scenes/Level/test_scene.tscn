@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://hirhnu1s7600"]
+[gd_scene load_steps=19 format=3 uid="uid://hirhnu1s7600"]
 
 [ext_resource type="Texture2D" uid="uid://07eqsax6qwda" path="res://Visual Assets/Tilemap/ShadowTilemapTest.png" id="1_5ig26"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_qa11t"]
 [ext_resource type="PackedScene" uid="uid://53pjpyrr47uo" path="res://Scenes/Char/Player.tscn" id="3_6krva"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="3_8ybio"]
 [ext_resource type="Texture2D" uid="uid://2b5c2il07src" path="res://Visual Assets/Tilemap/tilemap1.png" id="3_p6m4f"]
 [ext_resource type="PackedScene" uid="uid://be612wl8j5kvh" path="res://Scenes/Objects/MemoryObject.tscn" id="3_rxlh5"]
 [ext_resource type="Texture2D" uid="uid://cyg6lh50sripo" path="res://Visual Assets/Tilemap/Treeee.png" id="4_gfyxd"]
@@ -310,10 +311,6 @@ unique_name_in_owner = true
 y_sort_enabled = true
 script = ExtResource("1_qa11t")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="GameManager"]
-
-[node name="UI" parent="GameManager/CanvasLayer" instance=ExtResource("4_nf6ff")]
-
 [node name="Player" parent="GameManager" instance=ExtResource("3_6krva")]
 position = Vector2(1853, -42)
 
@@ -380,3 +377,63 @@ position = Vector2(1766, 29)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(1734, -55)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GameManager"]
+process_mode = 3
+
+[node name="UI" parent="GameManager/CanvasLayer" instance=ExtResource("4_nf6ff")]
+
+[node name="PauseMenu" type="Control" parent="GameManager/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_8ybio")
+
+[node name="Panel" type="Panel" parent="GameManager/CanvasLayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameManager/CanvasLayer/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameManager/CanvasLayer/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -120.0
+offset_right = 230.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Exit" type="Button" parent="GameManager/CanvasLayer/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Continue" type="Button" parent="GameManager/CanvasLayer/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Continue
+"
+
+[connection signal="pressed" from="GameManager/CanvasLayer/PauseMenu/Panel/VBoxContainer/Exit" to="GameManager/CanvasLayer/PauseMenu" method="_on_exit_pressed"]
+[connection signal="pressed" from="GameManager/CanvasLayer/PauseMenu/Panel/VBoxContainer/Continue" to="GameManager/CanvasLayer/PauseMenu" method="_on_continue_pressed"]
