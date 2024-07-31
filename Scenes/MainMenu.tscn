@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_gtjlg"]
 [ext_resource type="Texture2D" uid="uid://fgddxscnse0s" path="res://Visual Assets/UI/DialougeBox.png" id="1_no18o"]
-[ext_resource type="AudioStream" uid="uid://gdlei5vgxhuw" path="res://Sound/pulp-main.wav" id="3_pxb2l"]
+[ext_resource type="AudioStream" uid="uid://cv2anvuij4bci" path="res://Sound/pulp-menu.wav" id="3_okhjn"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -91,7 +91,7 @@ text = "Gmae"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_pxb2l")
+stream = ExtResource("3_okhjn")
 volume_db = -12.0
 autoplay = true
 
