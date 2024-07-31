@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2clooti3brsh"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_gtjlg"]
+[ext_resource type="Texture2D" uid="uid://fgddxscnse0s" path="res://Visual Assets/UI/DialougeBox.png" id="1_no18o"]
+[ext_resource type="AudioStream" uid="uid://1u068u2b7ylk" path="res://Sound/gospel-choir-heavenly-transition-3-186880.mp3" id="3_pokix"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gtjlg")
+metadata/_edit_vertical_guides_ = [-601.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -13.0
+offset_top = -10.0
+offset_right = 1453.0
+offset_bottom = 916.0
+color = Color(0, 0, 0.0901961, 1)
+
+[node name="StartButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -12.0
+offset_right = 64.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(64, 40)
+action_mode = 0
+button_mask = 3
+texture_normal = ExtResource("1_no18o")
+
+[node name="Label" type="Label" parent="StartButton"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 16
+text = "Start"
+horizontal_alignment = 1
+
+[node name="SoundButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -12.0
+offset_right = 64.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(64, -16)
+toggle_mode = true
+action_mode = 0
+button_mask = 3
+texture_normal = ExtResource("1_no18o")
+
+[node name="Label" type="Label" parent="SoundButton"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 23.0
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -620.0
+offset_right = -413.0
+offset_bottom = 45.0
+grow_horizontal = 2
+scale = Vector2(6, 6)
+theme_override_font_sizes/font_size = 32
+text = "Gmae"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pokix")
+volume_db = -10.4
+autoplay = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="toggled" from="SoundButton" to="." method="_on_sound_button_toggled"]

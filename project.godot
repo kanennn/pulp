@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="pulp"
-run/main_scene="res://Scenes/Level/test_scene.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Sound="*res://Sound.gd"
 
 [display]
 

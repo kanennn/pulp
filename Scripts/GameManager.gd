@@ -5,6 +5,7 @@ signal deth
 @onready var ui = $CanvasLayer/UI
 @onready var dayNight = $DayNightModulate
 @onready var player = $Player
+@onready var musicPlayer = $AudioStreamPlayer
 
 var isInteracting = false # Notifies any process that shouldn't activate when the player is interacting
 var maxEssence = 0 # Increases when memories are collected 
@@ -16,6 +17,8 @@ var dead = false
 func _ready():
 	add_to_group("GameManager")
 	dead = false
+	if Sound.getSoundSetting():
+		musicPlayer.play()
 	
 	## Connect to self
 	for i in get_tree().get_nodes_in_group("memories"): # Get and loop through all memories
