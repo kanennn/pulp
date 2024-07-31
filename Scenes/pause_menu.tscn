@@ -54,5 +54,12 @@ layout_mode = 2
 text = "Continue
 "
 
+[node name="Music" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Music
+"
+
 [connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="toggled" from="Panel/VBoxContainer/Music" to="." method="_on_music_toggled"]

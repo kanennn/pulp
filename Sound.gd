@@ -1,5 +1,7 @@
 extends Node
 
+signal settingChanged
+
 var toggleSound = true
 
 func getSoundSetting():
@@ -7,3 +9,4 @@ func getSoundSetting():
 
 func setSoundSetting(newToggleSound):
 	toggleSound = newToggleSound
+	settingChanged.emit()

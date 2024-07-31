@@ -6,6 +6,7 @@ signal deth
 @onready var dayNight = $DayNightModulate
 @onready var player = $Player
 @onready var musicPlayer = $AudioStreamPlayer
+@onready var pauseMenu = $CanvasLayer/PauseMenu
 
 var isInteracting = false # Notifies any process that shouldn't activate when the player is interacting
 var maxEssence = 0 # Increases when memories are collected 
@@ -28,6 +29,7 @@ func _ready():
 		i.togglePlayerInLight.connect(togglePlayerInLight) # Connect the toggleplayerinlight signals to the toggleplayerinlight function
 		i.togglePlayerInLight.connect(player.togglePlayerInLight)
 	dayNight.updateDayNight.connect(toggleTimeOfDay)
+	Sound.settingChanged.connect(toggleMusic)
 	
 	## Connect to others
 	dayNight.updateDayNight.connect(player.toggleTimeOfDay)
@@ -35,6 +37,9 @@ func _ready():
 
 func _process(delta):
 	updateEssence(delta)
+	
+	if Input.is_action_just_pressed("Pause") and !isInteracting:
+		pauseMenu.visible = true
 
 func onMemoryObtained(): # Increase max essence and current essence then send off to the ui essence bar
 	maxEssence += 1
@@ -68,3 +73,10 @@ func toggleTimeOfDay(_isNight): # Get if night from the daynight script
 
 func togglePlayerInLight(_isInLight): # Get if in light from the lamp script
 	isInLight = _isInLight
+
+func toggleMusic():
+	print("akk")
+	if Sound.getSoundSetting():
+		musicPlayer.play()
+	else:
+		musicPlayer.stop()

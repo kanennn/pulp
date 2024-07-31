@@ -121,7 +121,7 @@ func onDeath():
 	
 	await get_tree().create_timer(1).timeout # wait a sec
 	Engine.time_scale = 1 # reset time scale
-	
+	get_tree().quit()
 	print("deth... bleh")
 
 func onMemoryObtained(): # increase opacity on memory obtained
