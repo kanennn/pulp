@@ -11,7 +11,6 @@ var movement_target_position: Vector2 = Vector2(0,0.0) # initial target position
 
 func _ready():
 	## these values can be adjusted here, or in the inspector. they're her in case we need to change them here
-	animation.autoplay = ""
 	navigation_agent.debug_enabled = false
 	navigation_agent.radius = 30
 	navigation_agent.neighbor_distance = 1000
@@ -46,11 +45,12 @@ func _physics_process(delta):
 	if navigation_agent.is_navigation_finished(): #check if npc has arrived at target destination
 		animation.pause()
 		set_movement_target(get_new_target())
-		$Timer.start(3.0)# start waiting. we can change this value to a random range
-		return #since its done. just get out of the _physics_process func. i think i can remove it but just in case
+		# start waiting. we can change this value to a random range
+		return #since its done. just get out of the _physics_process func. i think i can remove it, but just in case
 
 	if navigation_agent.is_target_reachable()!=true: #if there is no way to get to target location: get a new target location
 		#print("target not reachable")
 		set_movement_target(get_new_target())
 	if col_box.is_on_wall() or col_box.is_on_ceiling() or col_box.is_on_floor():
 		set_movement_target(get_new_target())
+		return

@@ -15,11 +15,12 @@ script = ExtResource("1_gtjlg")
 metadata/_edit_vertical_guides_ = [-601.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -13.0
-offset_top = -10.0
-offset_right = 1453.0
-offset_bottom = 916.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0.0901961, 1)
 
 [node name="StartButton" type="TextureButton" parent="."]
@@ -77,6 +78,7 @@ text = "Music"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -87,7 +89,7 @@ offset_bottom = 45.0
 grow_horizontal = 2
 scale = Vector2(6, 6)
 theme_override_font_sizes/font_size = 32
-text = "Gmae"
+text = "The Game"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
